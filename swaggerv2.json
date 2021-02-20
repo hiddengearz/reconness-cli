@@ -1,0 +1,1627 @@
+{
+  "basePath": "/",
+  "definitions": {
+    "AccountLogFileDto": {
+      "additionalProperties": false,
+      "properties": {
+        "logFileSelected": {
+          "type": "string",
+          "x-nullable": true
+        }
+      },
+      "type": "object"
+    },
+    "AgentDebugDto": {
+      "additionalProperties": false,
+      "properties": {
+        "script": {
+          "type": "string",
+          "x-nullable": true
+        },
+        "terminalOutput": {
+          "type": "string",
+          "x-nullable": true
+        }
+      },
+      "type": "object"
+    },
+    "AgentDto": {
+      "additionalProperties": false,
+      "properties": {
+        "agentType": {
+          "type": "string",
+          "x-nullable": true
+        },
+        "categories": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array",
+          "x-nullable": true
+        },
+        "command": {
+          "type": "string",
+          "x-nullable": true
+        },
+        "id": {
+          "format": "uuid",
+          "type": "string",
+          "x-nullable": true
+        },
+        "lastRun": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "name": {
+          "type": "string",
+          "x-nullable": true
+        },
+        "repository": {
+          "type": "string",
+          "x-nullable": true
+        },
+        "script": {
+          "type": "string",
+          "x-nullable": true
+        },
+        "triggerRootdomainHasBounty": {
+          "type": "boolean"
+        },
+        "triggerRootdomainIncExcName": {
+          "type": "string",
+          "x-nullable": true
+        },
+        "triggerRootdomainName": {
+          "type": "string",
+          "x-nullable": true
+        },
+        "triggerSkipIfRunBefore": {
+          "type": "boolean"
+        },
+        "triggerSubdomainHasBounty": {
+          "type": "boolean"
+        },
+        "triggerSubdomainHasHttpOrHttpsOpen": {
+          "type": "boolean"
+        },
+        "triggerSubdomainIP": {
+          "type": "string",
+          "x-nullable": true
+        },
+        "triggerSubdomainIncExcIP": {
+          "type": "string",
+          "x-nullable": true
+        },
+        "triggerSubdomainIncExcLabel": {
+          "type": "string",
+          "x-nullable": true
+        },
+        "triggerSubdomainIncExcName": {
+          "type": "string",
+          "x-nullable": true
+        },
+        "triggerSubdomainIncExcServicePort": {
+          "type": "string",
+          "x-nullable": true
+        },
+        "triggerSubdomainIncExcTechnology": {
+          "type": "string",
+          "x-nullable": true
+        },
+        "triggerSubdomainIsAlive": {
+          "type": "boolean"
+        },
+        "triggerSubdomainIsMainPortal": {
+          "type": "boolean"
+        },
+        "triggerSubdomainLabel": {
+          "type": "string",
+          "x-nullable": true
+        },
+        "triggerSubdomainName": {
+          "type": "string",
+          "x-nullable": true
+        },
+        "triggerSubdomainServicePort": {
+          "type": "string",
+          "x-nullable": true
+        },
+        "triggerSubdomainTechnology": {
+          "type": "string",
+          "x-nullable": true
+        },
+        "triggerTargetHasBounty": {
+          "type": "boolean"
+        },
+        "triggerTargetIncExcName": {
+          "type": "string",
+          "x-nullable": true
+        },
+        "triggerTargetName": {
+          "type": "string",
+          "x-nullable": true
+        }
+      },
+      "type": "object"
+    },
+    "AgentMarketplaceDto": {
+      "additionalProperties": false,
+      "properties": {
+        "category": {
+          "type": "string",
+          "x-nullable": true
+        },
+        "command": {
+          "type": "string",
+          "x-nullable": true
+        },
+        "isByDirectory": {
+          "type": "boolean"
+        },
+        "isByResource": {
+          "type": "boolean"
+        },
+        "isByRootDomain": {
+          "type": "boolean"
+        },
+        "isBySubdomain": {
+          "type": "boolean"
+        },
+        "isByTarget": {
+          "type": "boolean"
+        },
+        "name": {
+          "type": "string",
+          "x-nullable": true
+        },
+        "repository": {
+          "type": "string",
+          "x-nullable": true
+        },
+        "scriptUrl": {
+          "type": "string",
+          "x-nullable": true
+        }
+      },
+      "type": "object"
+    },
+    "AgentRunnerDto": {
+      "additionalProperties": false,
+      "properties": {
+        "activateNotification": {
+          "type": "boolean"
+        },
+        "agent": {
+          "type": "string",
+          "x-nullable": true
+        },
+        "command": {
+          "type": "string",
+          "x-nullable": true
+        },
+        "rootDomain": {
+          "type": "string",
+          "x-nullable": true
+        },
+        "subdomain": {
+          "type": "string",
+          "x-nullable": true
+        },
+        "target": {
+          "type": "string",
+          "x-nullable": true
+        }
+      },
+      "type": "object"
+    },
+    "CredentialsViewModel": {
+      "additionalProperties": false,
+      "properties": {
+        "password": {
+          "type": "string",
+          "x-nullable": true
+        },
+        "userName": {
+          "type": "string",
+          "x-nullable": true
+        }
+      },
+      "type": "object"
+    },
+    "DirectoryDto": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "format": "uuid",
+          "type": "string",
+          "x-nullable": true
+        },
+        "method": {
+          "type": "string",
+          "x-nullable": true
+        },
+        "size": {
+          "type": "string",
+          "x-nullable": true
+        },
+        "statusCode": {
+          "type": "string",
+          "x-nullable": true
+        },
+        "uri": {
+          "type": "string",
+          "x-nullable": true
+        }
+      },
+      "type": "object"
+    },
+    "LabelDto": {
+      "additionalProperties": false,
+      "properties": {
+        "color": {
+          "type": "string",
+          "x-nullable": true
+        },
+        "id": {
+          "format": "uuid",
+          "type": "string",
+          "x-nullable": true
+        },
+        "name": {
+          "type": "string",
+          "x-nullable": true
+        }
+      },
+      "type": "object"
+    },
+    "NoteDto": {
+      "additionalProperties": false,
+      "properties": {
+        "notes": {
+          "type": "string",
+          "x-nullable": true
+        }
+      },
+      "type": "object"
+    },
+    "NotificationDto": {
+      "additionalProperties": false,
+      "properties": {
+        "directoryPayload": {
+          "type": "string",
+          "x-nullable": true
+        },
+        "hasHttpOpenPayload": {
+          "type": "string",
+          "x-nullable": true
+        },
+        "ipAddressPayload": {
+          "type": "string",
+          "x-nullable": true
+        },
+        "isAlivePayload": {
+          "type": "string",
+          "x-nullable": true
+        },
+        "method": {
+          "type": "string",
+          "x-nullable": true
+        },
+        "notePayload": {
+          "type": "string",
+          "x-nullable": true
+        },
+        "payload": {
+          "type": "string",
+          "x-nullable": true
+        },
+        "rootDomainPayload": {
+          "type": "string",
+          "x-nullable": true
+        },
+        "screenshotPayload": {
+          "type": "string",
+          "x-nullable": true
+        },
+        "servicePayload": {
+          "type": "string",
+          "x-nullable": true
+        },
+        "subdomainPayload": {
+          "type": "string",
+          "x-nullable": true
+        },
+        "takeoverPayload": {
+          "type": "string",
+          "x-nullable": true
+        },
+        "technologyPayload": {
+          "type": "string",
+          "x-nullable": true
+        },
+        "url": {
+          "type": "string",
+          "x-nullable": true
+        }
+      },
+      "type": "object"
+    },
+    "ReferenceDto": {
+      "additionalProperties": false,
+      "properties": {
+        "categories": {
+          "type": "string",
+          "x-nullable": true
+        },
+        "id": {
+          "format": "uuid",
+          "type": "string",
+          "x-nullable": true
+        },
+        "url": {
+          "type": "string",
+          "x-nullable": true
+        }
+      },
+      "type": "object"
+    },
+    "RootDomainDto": {
+      "additionalProperties": false,
+      "properties": {
+        "agentsRanBefore": {
+          "type": "string",
+          "x-nullable": true
+        },
+        "id": {
+          "format": "uuid",
+          "type": "string",
+          "x-nullable": true
+        },
+        "name": {
+          "type": "string",
+          "x-nullable": true
+        },
+        "notes": {
+          "type": "string",
+          "x-nullable": true
+        },
+        "subdomains": {
+          "items": {
+            "$ref": "#/definitions/SubdomainDto"
+          },
+          "type": "array",
+          "x-nullable": true
+        }
+      },
+      "type": "object"
+    },
+    "ServiceDto": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "format": "uuid",
+          "type": "string",
+          "x-nullable": true
+        },
+        "name": {
+          "type": "string",
+          "x-nullable": true
+        },
+        "port": {
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "SubdomainDto": {
+      "additionalProperties": false,
+      "properties": {
+        "agentsRanBefore": {
+          "type": "string",
+          "x-nullable": true
+        },
+        "createdAt": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "directories": {
+          "items": {
+            "$ref": "#/definitions/DirectoryDto"
+          },
+          "type": "array",
+          "x-nullable": true
+        },
+        "hasHttpOpen": {
+          "type": "boolean",
+          "x-nullable": true
+        },
+        "id": {
+          "format": "uuid",
+          "type": "string",
+          "x-nullable": true
+        },
+        "ipAddress": {
+          "type": "string",
+          "x-nullable": true
+        },
+        "isAlive": {
+          "type": "boolean",
+          "x-nullable": true
+        },
+        "isMainPortal": {
+          "type": "boolean",
+          "x-nullable": true
+        },
+        "labels": {
+          "items": {
+            "$ref": "#/definitions/LabelDto"
+          },
+          "type": "array",
+          "x-nullable": true
+        },
+        "name": {
+          "type": "string",
+          "x-nullable": true
+        },
+        "notes": {
+          "type": "string",
+          "x-nullable": true
+        },
+        "rootDomain": {
+          "type": "string",
+          "x-nullable": true
+        },
+        "screenshotHttpPNGBase64": {
+          "type": "string",
+          "x-nullable": true
+        },
+        "screenshotHttpsPNGBase64": {
+          "type": "string",
+          "x-nullable": true
+        },
+        "services": {
+          "items": {
+            "$ref": "#/definitions/ServiceDto"
+          },
+          "type": "array",
+          "x-nullable": true
+        },
+        "takeover": {
+          "type": "boolean",
+          "x-nullable": true
+        },
+        "target": {
+          "type": "string",
+          "x-nullable": true
+        },
+        "technology": {
+          "type": "string",
+          "x-nullable": true
+        }
+      },
+      "type": "object"
+    },
+    "SubdomainLabelDto": {
+      "additionalProperties": false,
+      "properties": {
+        "label": {
+          "type": "string",
+          "x-nullable": true
+        }
+      },
+      "type": "object"
+    },
+    "TargetDto": {
+      "additionalProperties": false,
+      "properties": {
+        "agentsRanBefore": {
+          "type": "string",
+          "x-nullable": true
+        },
+        "bugBountyProgramUrl": {
+          "type": "string",
+          "x-nullable": true
+        },
+        "id": {
+          "format": "uuid",
+          "type": "string",
+          "x-nullable": true
+        },
+        "inScope": {
+          "type": "string",
+          "x-nullable": true
+        },
+        "isPrivate": {
+          "type": "boolean"
+        },
+        "name": {
+          "type": "string",
+          "x-nullable": true
+        },
+        "outOfScope": {
+          "type": "string",
+          "x-nullable": true
+        },
+        "rootDomains": {
+          "items": {
+            "$ref": "#/definitions/RootDomainDto"
+          },
+          "type": "array",
+          "x-nullable": true
+        }
+      },
+      "type": "object"
+    }
+  },
+  "host": "recon.hiddengearz.com",
+  "info": {
+    "description": "ReconNess API, all the methods need authorization, for that use <b>/api/Auth/Login</b> method first to obtain the <b>Token</b>. \r\n\r\nAnd then use the <b>Authorize</b> button to insert the <b>Token</b>.",
+    "termsOfService": "https://www.reconness.com/terms",
+    "title": "Swagger Reconness",
+    "version": "v1"
+  },
+  "paths": {
+    "/api/Accounts/cleanLogfile": {
+      "post": {
+        "consumes": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/AccountLogFileDto"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        },
+        "tags": [
+          "Accounts"
+        ]
+      }
+    },
+    "/api/Accounts/currentVersion": {
+      "get": {
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        },
+        "tags": [
+          "Accounts"
+        ]
+      }
+    },
+    "/api/Accounts/latestVersion": {
+      "get": {
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        },
+        "tags": [
+          "Accounts"
+        ]
+      }
+    },
+    "/api/Accounts/logfiles": {
+      "get": {
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        },
+        "tags": [
+          "Accounts"
+        ]
+      }
+    },
+    "/api/Accounts/notification": {
+      "get": {
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        },
+        "tags": [
+          "Accounts"
+        ]
+      }
+    },
+    "/api/Accounts/readLogfile/{logFileSelected}": {
+      "get": {
+        "parameters": [
+          {
+            "in": "path",
+            "name": "logFileSelected",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        },
+        "tags": [
+          "Accounts"
+        ]
+      }
+    },
+    "/api/Accounts/saveNotification": {
+      "post": {
+        "consumes": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/NotificationDto"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        },
+        "tags": [
+          "Accounts"
+        ]
+      }
+    },
+    "/api/Agents": {
+      "get": {
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        },
+        "tags": [
+          "Agents"
+        ]
+      },
+      "post": {
+        "consumes": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/AgentDto"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        },
+        "tags": [
+          "Agents"
+        ]
+      }
+    },
+    "/api/Agents/debug": {
+      "post": {
+        "consumes": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/AgentDebugDto"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        },
+        "tags": [
+          "Agents"
+        ]
+      }
+    },
+    "/api/Agents/install": {
+      "post": {
+        "consumes": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/AgentMarketplaceDto"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        },
+        "tags": [
+          "Agents"
+        ]
+      }
+    },
+    "/api/Agents/marketplace": {
+      "get": {
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        },
+        "tags": [
+          "Agents"
+        ]
+      }
+    },
+    "/api/Agents/run": {
+      "post": {
+        "consumes": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/AgentRunnerDto"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        },
+        "tags": [
+          "Agents"
+        ]
+      }
+    },
+    "/api/Agents/running/{targetName}/{rootDomainName}/{subdomainName}": {
+      "get": {
+        "parameters": [
+          {
+            "in": "path",
+            "name": "targetName",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "rootDomainName",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "subdomainName",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        },
+        "tags": [
+          "Agents"
+        ]
+      }
+    },
+    "/api/Agents/stop": {
+      "post": {
+        "consumes": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/AgentRunnerDto"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        },
+        "tags": [
+          "Agents"
+        ]
+      }
+    },
+    "/api/Agents/{agentName}": {
+      "delete": {
+        "parameters": [
+          {
+            "in": "path",
+            "name": "agentName",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        },
+        "tags": [
+          "Agents"
+        ]
+      },
+      "get": {
+        "parameters": [
+          {
+            "in": "path",
+            "name": "agentName",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        },
+        "tags": [
+          "Agents"
+        ]
+      }
+    },
+    "/api/Agents/{id}": {
+      "put": {
+        "consumes": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "format": "uuid",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/AgentDto"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        },
+        "tags": [
+          "Agents"
+        ]
+      }
+    },
+    "/api/Auth/Login": {
+      "post": {
+        "consumes": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/CredentialsViewModel"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        },
+        "tags": [
+          "Auth"
+        ]
+      }
+    },
+    "/api/Categories": {
+      "get": {
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        },
+        "tags": [
+          "Categories"
+        ]
+      }
+    },
+    "/api/Labels": {
+      "get": {
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        },
+        "tags": [
+          "Labels"
+        ]
+      }
+    },
+    "/api/Notes/rootdomain/{targetName}/{rootDomainName}": {
+      "post": {
+        "consumes": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "targetName",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "rootDomainName",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/NoteDto"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        },
+        "tags": [
+          "Notes"
+        ]
+      }
+    },
+    "/api/Notes/subdomain/{targetName}/{rootDomainName}/{subdomainName}": {
+      "post": {
+        "consumes": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "targetName",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "rootDomainName",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "subdomainName",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/NoteDto"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        },
+        "tags": [
+          "Notes"
+        ]
+      }
+    },
+    "/api/References": {
+      "get": {
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        },
+        "tags": [
+          "References"
+        ]
+      },
+      "post": {
+        "consumes": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/ReferenceDto"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        },
+        "tags": [
+          "References"
+        ]
+      }
+    },
+    "/api/References/categories": {
+      "get": {
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        },
+        "tags": [
+          "References"
+        ]
+      }
+    },
+    "/api/References/{id}": {
+      "delete": {
+        "parameters": [
+          {
+            "format": "uuid",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        },
+        "tags": [
+          "References"
+        ]
+      }
+    },
+    "/api/RootDomains/deleteSubdomians/{targetName}/{rootDomainName}": {
+      "delete": {
+        "parameters": [
+          {
+            "in": "path",
+            "name": "targetName",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "rootDomainName",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        },
+        "tags": [
+          "RootDomains"
+        ]
+      }
+    },
+    "/api/RootDomains/export/{targetName}/{rootDomainName}": {
+      "post": {
+        "parameters": [
+          {
+            "in": "path",
+            "name": "targetName",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "rootDomainName",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        },
+        "tags": [
+          "RootDomains"
+        ]
+      }
+    },
+    "/api/RootDomains/exportSubdomains/{targetName}/{rootDomainName}": {
+      "post": {
+        "parameters": [
+          {
+            "in": "path",
+            "name": "targetName",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "rootDomainName",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        },
+        "tags": [
+          "RootDomains"
+        ]
+      }
+    },
+    "/api/RootDomains/uploadSubdomains/{targetName}/{rootDomainName}": {
+      "post": {
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "targetName",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "rootDomainName",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "format": "binary",
+            "in": "formData",
+            "name": "file",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        },
+        "tags": [
+          "RootDomains"
+        ]
+      }
+    },
+    "/api/RootDomains/{targetName}/{rootDomainName}": {
+      "get": {
+        "parameters": [
+          {
+            "in": "path",
+            "name": "targetName",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "rootDomainName",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        },
+        "tags": [
+          "RootDomains"
+        ]
+      }
+    },
+    "/api/Subdomains": {
+      "post": {
+        "consumes": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/SubdomainDto"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        },
+        "tags": [
+          "Subdomains"
+        ]
+      }
+    },
+    "/api/Subdomains/GetPaginate/{targetName}/{rootDomainName}": {
+      "get": {
+        "parameters": [
+          {
+            "in": "path",
+            "name": "targetName",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "rootDomainName",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "Query",
+            "type": "string"
+          },
+          {
+            "format": "int32",
+            "in": "query",
+            "name": "Limit",
+            "type": "integer"
+          },
+          {
+            "format": "int32",
+            "in": "query",
+            "name": "Ascending",
+            "type": "integer"
+          },
+          {
+            "format": "int32",
+            "in": "query",
+            "name": "Page",
+            "type": "integer"
+          },
+          {
+            "format": "int32",
+            "in": "query",
+            "name": "ByColumn",
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        },
+        "tags": [
+          "Subdomains"
+        ]
+      }
+    },
+    "/api/Subdomains/label/{id}": {
+      "put": {
+        "consumes": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "format": "uuid",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/SubdomainLabelDto"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        },
+        "tags": [
+          "Subdomains"
+        ]
+      }
+    },
+    "/api/Subdomains/{id}": {
+      "delete": {
+        "parameters": [
+          {
+            "format": "uuid",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        },
+        "tags": [
+          "Subdomains"
+        ]
+      },
+      "put": {
+        "consumes": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "format": "uuid",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/SubdomainDto"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        },
+        "tags": [
+          "Subdomains"
+        ]
+      }
+    },
+    "/api/Subdomains/{targetName}/{rootDomainName}/{subdomainName}": {
+      "get": {
+        "parameters": [
+          {
+            "in": "path",
+            "name": "targetName",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "rootDomainName",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "subdomainName",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        },
+        "tags": [
+          "Subdomains"
+        ]
+      }
+    },
+    "/api/Targets": {
+      "get": {
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        },
+        "tags": [
+          "Targets"
+        ]
+      },
+      "post": {
+        "consumes": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/TargetDto"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        },
+        "tags": [
+          "Targets"
+        ]
+      }
+    },
+    "/api/Targets/importRootDomain/{targetName}": {
+      "post": {
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "targetName",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "format": "binary",
+            "in": "formData",
+            "name": "file",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        },
+        "tags": [
+          "Targets"
+        ]
+      }
+    },
+    "/api/Targets/{id}": {
+      "put": {
+        "consumes": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "format": "uuid",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/TargetDto"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        },
+        "tags": [
+          "Targets"
+        ]
+      }
+    },
+    "/api/Targets/{targetName}": {
+      "delete": {
+        "parameters": [
+          {
+            "in": "path",
+            "name": "targetName",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        },
+        "tags": [
+          "Targets"
+        ]
+      },
+      "get": {
+        "parameters": [
+          {
+            "in": "path",
+            "name": "targetName",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        },
+        "tags": [
+          "Targets"
+        ]
+      }
+    }
+  },
+  "schemes": [
+    "http"
+  ],
+  "security": [
+    {
+      "Bearer": []
+    }
+  ],
+  "securityDefinitions": {
+    "Bearer": {
+      "description": "Enter 'Bearer' [space] and then your valid token in the text input below.\r\n\r\nExample: \"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9\"",
+      "in": "header",
+      "name": "Authorization",
+      "type": "apiKey"
+    }
+  },
+  "swagger": "2.0",
+  "x-components": {}
+}
