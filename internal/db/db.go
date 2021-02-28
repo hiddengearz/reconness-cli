@@ -1,36 +1,42 @@
 package db
 
 import (
-	"log"
-	"os"
 	"path/filepath"
 	"time"
 
-	"github.com/MoreThanRecon/laelaps/internal"
-	"github.com/MoreThanRecon/laelaps/internal/encrypt"
 	"github.com/dgraph-io/badger/v3"
-
-	l "github.com/MoreThanRecon/laelaps/internal/logger"
-	"github.com/peterbourgon/diskv"
+	"github.com/hiddengearz/reconness-cli/internal"
+	"github.com/hiddengearz/reconness-cli/internal/crypto"
+	log "github.com/sirupsen/logrus"
 	"github.com/spf13/viper"
 )
 
 var (
-	db2                *diskv.Diskv
 	db                 *badger.DB
 	badgerDiscardRatio = 0.5
 	badgerGCInterval   = 10 * time.Minute
 )
 
+//InitDB will initialize the Badger Database.
 func InitDB() {
 	var err error
-	laelapsPath := filepath.Dir(viper.ConfigFileUsed())
-	dbpath := laelapsPath + "/db/badger/"
+	rcliPath := filepath.Dir(viper.ConfigFileUsed())
+	dbpath := rcliPath + "/db/"
 
 	opts := badger.DefaultOptions(dbpath)
 	opts.SyncWrites = true
 	if internal.Debug == false {
 		opts.Logger = nil
+	}
+
+	if internal.EncKey == "" {
+		log.Fatal("Encryption key can't be empty")
+	}
+
+	if internal.Encryption == true { // All data written to the DB will be encrypted with a 32bit hash of the user's key
+		key := crypto.HashTo32Bytes(internal.EncKey)
+		internal.EncKey = "" //will this ensure that the plaintext key is no longer in memory?
+		opts = opts.WithEncryptionKey(key)
 	}
 
 	db, err = badger.Open(opts)
@@ -41,7 +47,8 @@ func InitDB() {
 
 }
 
-func EncWrite(key string, data []byte, password string) (err error) {
+//Write will write the specified data at the key value address
+func Write(key string, data []byte) (err error) {
 	err = db.Update(func(txn *badger.Txn) error {
 		err := txn.Set([]byte(key), data)
 		return err
@@ -50,7 +57,8 @@ func EncWrite(key string, data []byte, password string) (err error) {
 	return err
 }
 
-func EncRead(key string, password string) (data []byte, err error) {
+//Read will read the specified key value address and return the stored data
+func Read(key string) (data []byte, err error) {
 	var item *badger.Item
 
 	err = db.View(func(txn *badger.Txn) error {
@@ -68,6 +76,7 @@ func EncRead(key string, password string) (data []byte, err error) {
 
 }
 
+//ReadAllWithPrefix will read all key value adresses with the specified prefix and return the stored data in a 2D slice
 func ReadAllWithPrefix(prefix string) (data [][]byte, err error) {
 
 	err = db.View(func(txn *badger.Txn) error {
@@ -89,6 +98,7 @@ func ReadAllWithPrefix(prefix string) (data [][]byte, err error) {
 	return
 }
 
+//runGC runs the garbage collector for the database
 func runGC() {
 	ticker := time.NewTicker(5 * time.Minute)
 	defer ticker.Stop()
@@ -101,6 +111,7 @@ func runGC() {
 	}
 }
 
+//Cleanup is similar to runGC, cleansup the DB
 func Cleanup() {
 again:
 	err := db.RunValueLogGC(0.7)
@@ -109,58 +120,7 @@ again:
 	}
 }
 
+//Close closes the DB
 func Close() {
 	db.Close()
-}
-
-func InitDB2() {
-
-	laelapsPath := filepath.Dir(viper.ConfigFileUsed())
-	dbpath := laelapsPath + "/db/"
-
-	_, err := os.Stat(dbpath)
-	if os.IsNotExist(err) {
-		l.Log.Debug("Database not found in", dbpath)
-		l.Log.Info("Creating db at", dbpath)
-		os.Mkdir(dbpath, 0700)
-	}
-
-	flatTransform := func(s string) []string { return []string{} }
-
-	// Initialize a new diskv store, rooted at "my-data-dir", with a 1MB cache.
-	db2 = diskv.New(diskv.Options{
-		BasePath:     dbpath,
-		Transform:    flatTransform,
-		CacheSizeMax: 1024 * 1024,
-	})
-
-}
-
-func EncWrite2(key string, data []byte, password string) (err error) {
-
-	dataString, err := encrypt.EncryptData(data, password)
-	if err != nil {
-		l.Log.Debug(err)
-		return
-	}
-
-	err = db2.Write(key, []byte(dataString))
-	return err
-}
-
-func EncRead2(key string, password string) (data []byte, err error) {
-
-	encString, err := db2.Read(key)
-	if err != nil {
-		l.Log.Debug(err)
-		return
-	}
-	encData := string(encString)
-
-	data, err = encrypt.DecryptData(encData, password)
-	if err != nil {
-		l.Log.Debug(err)
-		return nil, err
-	}
-	return data, err
 }
